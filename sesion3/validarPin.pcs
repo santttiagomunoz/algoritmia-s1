@@ -1,0 +1,32 @@
+Algoritmo ValidarPinRegresivo
+    Definir pinSecreto, pinIngresado Como Entero
+    Definir intentosRestantes Como Entero
+    Definir accesoConcedido Como Logico
+    
+    pinSecreto <- 2580
+    intentosRestantes <- 3
+    accesoConcedido <- Falso
+    
+    Escribir "=== SISTEMA DE CAJERO AUTOMÁTICO ==="
+    
+    Mientras intentosRestantes > 0 Y NO accesoConcedido Hacer
+        Escribir "Ingrese su PIN (Intentos restantes: ", intentosRestantes, "): "
+        Leer pinIngresado
+        
+        Si pinIngresado = pinSecreto Entonces
+            accesoConcedido <- Verdadero
+        SiNo
+            intentosRestantes <- intentosRestantes - 1
+            Si intentosRestantes > 0 Entonces
+                Escribir "-> Clave incorrecta. Intente nuevamente."
+            FinSi
+        FinSi
+    FinMientras
+    
+    Escribir "----------------------------------"
+    Si accesoConcedido Entonces
+        Escribir "¡Bienvenido! Acceso autorizado."
+    SiNo
+        Escribir "Tarjeta bloqueada por seguridad. Superó el límite de intentos."
+    FinSi
+FinAlgoritmo
